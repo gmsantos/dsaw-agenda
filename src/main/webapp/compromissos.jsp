@@ -24,10 +24,6 @@
             <input name="data" size="11" required="required" class="form-control" />
         </div>
         <div class="input-group">
-            <label for="hora">Hora</label>
-            <input name="hora" size="5" required="required" class="form-control" />
-        </div>
-        <div class="input-group">
             <label for="local">Local</label>
             <input name="local" size="45" required="required" class="form-control" />
         </div>
