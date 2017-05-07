@@ -12,8 +12,8 @@ public class Compromisso {
     private Double duracao;
     private String observacao;
         
-    public String getId(){
-        return titulo;
+    public int getId(){
+        return id;
     }
     
     public void setId(int id){
@@ -60,7 +60,7 @@ public class Compromisso {
         this.duracao = duracao;
     }
     
-    public String getObsevacao(){
+    public String getObservacao(){
         return observacao;
     }
     

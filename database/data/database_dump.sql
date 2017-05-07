@@ -10,3 +10,8 @@ CREATE TABLE `compromissos` (
     `duracao` decimal(10,2) NOT NULL,
     `observacao` varchar(200)
 );
+
+INSERT INTO `compromissos` (`titulo`, `tipo`, `data`, `local`, `duracao`, `observacao`) VALUES 
+    ("Meu evento", "Encontro", "2018-05-08 03:15:00", "São Paulo", 10, null),
+    ("Evento Bacana", "Outro", "2018-05-08 03:15:00", "São José", 1, "Tem comida"),
+    ("Evento", "Encontro", "2018-06-08 03:15:00", "Longe", 1, null);
