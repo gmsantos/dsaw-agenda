@@ -21,7 +21,7 @@
         </div>
         <div class="input-group">
             <label for="data">Data</label>
-            <input name="data" size="11" required="required" class="form-control" />
+            <input name="data" size="16" required="required" class="form-control" placeholder="07/05/2017 02:00" />
         </div>
         <div class="input-group">
             <label for="local">Local</label>

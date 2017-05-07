@@ -25,7 +25,7 @@ public class CadastroCompromissos extends HttpServlet {
         Date data;
 
         try {
-            data = new SimpleDateFormat("dd/MM/yyy HH:mm:ss").parse(
+            data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(
                 request.getParameter("data")
             );
         } catch (ParseException ex) {
