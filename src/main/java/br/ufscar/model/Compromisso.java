@@ -1,4 +1,4 @@
-package br.ufscar.servlet;
+package br.ufscar.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,5 +1,6 @@
-package br.ufscar.servlet;
+package br.ufscar.servlet.Compromissos;
 
+import br.ufscar.model.Compromisso;
 import java.io.IOException;
 import java.util.Date;
 import java.text.ParseException;
@@ -10,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "CadastroCompromissos", urlPatterns = {"/CadastroCompromissos"})
-public class CadastroCompromissos extends HttpServlet {
+@WebServlet("/compromissos/inserir")
+public class Inserir extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +44,7 @@ public class CadastroCompromissos extends HttpServlet {
         if (compromisso.select()) {
             request.setAttribute("output", "Compromisso já agendado");
             request.setAttribute("status", "danger");
-            dispachTo("WEB-INF/pages/status.jsp", request, response);
+            dispachTo("/WEB-INF/pages/status.jsp", request, response);
             return;
         } 
                 
@@ -56,27 +57,27 @@ public class CadastroCompromissos extends HttpServlet {
         ) {
             request.setAttribute("output", "Todos os campos precisam ser preenchidos");
             request.setAttribute("status", "danger");
-            dispachTo("WEB-INF/pages/status.jsp", request, response);
+            dispachTo("/WEB-INF/pages/status.jsp", request, response);
             return;
         }
   
         if (data.getTime() <= System.currentTimeMillis()) {
             request.setAttribute("output", "Você agendou um compromisso no passado. Digite uma data futura");
             request.setAttribute("status", "danger");
-            dispachTo("WEB-INF/pages/status.jsp", request, response);
+            dispachTo("/WEB-INF/pages/status.jsp", request, response);
             return;
         }
 
         if (!compromisso.save()){
             request.setAttribute("output", "Falha ao cadastrar compromisso");
             request.setAttribute("status", "danger");
-            dispachTo("WEB-INF/pages/status.jsp", request, response);
+            dispachTo("/WEB-INF/pages/status.jsp", request, response);
             return;
         }
 
         request.setAttribute("output", "Cadastro do Compromisso realizado com sucesso");
         request.setAttribute("status", "success");
-        dispachTo("WEB-INF/pages/status.jsp", request, response);
+        dispachTo("/WEB-INF/pages/status.jsp", request, response);
     }
 
     private void dispachTo(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException {

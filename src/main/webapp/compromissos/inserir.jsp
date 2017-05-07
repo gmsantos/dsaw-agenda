@@ -3,7 +3,7 @@
 
 <t:master>
     <h1>Agendamento de Compromissos</h1>
-    <form action="CadastroCompromissos" id="formAgendamento" method="POST">
+    <form action="/compromissos/inserir" id="formAgendamento" method="POST">
         <div class="input-group">
             <label for="titulo">Título</label>
             <input name="titulo" type="text" class="form-control" required="required" size="45"/>
