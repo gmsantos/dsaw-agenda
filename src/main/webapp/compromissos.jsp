@@ -36,6 +36,8 @@
             <textarea name="observacao" cols="50" rows="3" required="required" class="form-control"></textarea>
         </div>
             
-        <input type="submit" value="Cadastrar">
+        <div class="input-group">
+            <input type="submit" value="Cadastrar">
+        </div>
     </form>
 </t:master>
