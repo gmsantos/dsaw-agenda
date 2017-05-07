@@ -20,7 +20,7 @@ public class BaseServlet extends HttpServlet {
         dispachTo("/WEB-INF/pages/status.jsp", request, response);
     }
 
-    private void dispachTo(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void dispachTo(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             request.getRequestDispatcher(page).forward(request, response);
         } catch (IOException e) {

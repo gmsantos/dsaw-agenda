@@ -35,7 +35,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/index.jsp">Home</a></li>
-            <li><a href="/compromissos/inserir.jsp">Novo Compromisso</a></li>
+            <li><a href="/compromissos/listar">Compromissos</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

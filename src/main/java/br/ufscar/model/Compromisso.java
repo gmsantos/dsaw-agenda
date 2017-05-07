@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Compromisso {
     
+    private int id;
     private String titulo;
     private String tipo;
     private Date data;
@@ -11,6 +12,14 @@ public class Compromisso {
     private Double duracao;
     private String observacao;
         
+    public String getId(){
+        return titulo;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
     public String getTitulo(){
         return titulo;
     }
