@@ -6,10 +6,10 @@
         <h1>DSAW - Agenda</h1>
         <p class="lead">This template intend to make easier to start my college projects.</p>
     </div>
-    <pre>
-        Daniel Constantino RA: 580996
-        Felipe Nogueira de Souza RA: 581038
-        Gabriel Machado RA: 581062
-        Wesley Sales RA: 581100
-    </pre>
+    <p>
+        Daniel Constantino RA: 580996<br />
+        Felipe Nogueira de Souza RA: 581038<br />
+        Gabriel Machado RA: 581062<br />
+        Wesley Sales RA: 581100<br />
+    </p>
 </t:master>
