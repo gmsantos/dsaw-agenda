@@ -1,18 +1,19 @@
 package br.ufscar.servlet.Compromissos;
 
 import br.ufscar.model.Compromisso;
+import br.ufscar.model.dao.CompromissoDao;
+import br.ufscar.servlet.BaseServlet;
 import java.io.IOException;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/compromissos/inserir")
-public class Inserir extends HttpServlet {
+public class Inserir extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,51 +42,29 @@ public class Inserir extends HttpServlet {
         compromisso.setDuracao(duracao);
         compromisso.setObservacao(observacao);
         
-        if (compromisso.select()) {
-            request.setAttribute("output", "Compromisso já agendado");
-            request.setAttribute("status", "danger");
-            dispachTo("/WEB-INF/pages/status.jsp", request, response);
+        if (!compromisso.isValid()) {
+            error("Todos os campos precisam ser preenchidos", request, response);
+            return;
+        }
+
+        if (data.getTime() <= System.currentTimeMillis()) {
+            error("Você agendou um compromisso no passado. Digite uma data futura", request, response);
+            return;
+        }
+
+        CompromissoDao dao = new CompromissoDao(compromisso);
+
+        if (dao.find()) {
+            error("Compromisso já agendado", request, response);
             return;
         } 
-                
-        //Validações do Formulário
-        if (titulo.isEmpty() 
-            || tipo.isEmpty()
-            || local.isEmpty() 
-            || duracao.isNaN() 
-            || observacao.isEmpty()
-        ) {
-            request.setAttribute("output", "Todos os campos precisam ser preenchidos");
-            request.setAttribute("status", "danger");
-            dispachTo("/WEB-INF/pages/status.jsp", request, response);
-            return;
-        }
-  
-        if (data.getTime() <= System.currentTimeMillis()) {
-            request.setAttribute("output", "Você agendou um compromisso no passado. Digite uma data futura");
-            request.setAttribute("status", "danger");
-            dispachTo("/WEB-INF/pages/status.jsp", request, response);
+
+        if (!dao.insert()){
+            error("Falha ao cadastrar compromisso", request, response);
             return;
         }
 
-        if (!compromisso.save()){
-            request.setAttribute("output", "Falha ao cadastrar compromisso");
-            request.setAttribute("status", "danger");
-            dispachTo("/WEB-INF/pages/status.jsp", request, response);
-            return;
-        }
-
-        request.setAttribute("output", "Cadastro do Compromisso realizado com sucesso");
-        request.setAttribute("status", "success");
-        dispachTo("/WEB-INF/pages/status.jsp", request, response);
-    }
-
-    private void dispachTo(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try {
-            request.getRequestDispatcher(page).forward(request, response);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        success("Cadastro do Compromisso realizado com sucesso", request, response);
     }
 }
 
