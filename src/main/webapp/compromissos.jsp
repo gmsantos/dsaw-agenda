@@ -6,7 +6,7 @@
     <form action="CadastroCompromissos" id="formAgendamento" method="POST">
         <div class="input-group">
             <label for="titulo">Título</label>
-            <input name="titulo" class="form-control" required="required" size="45"/>
+            <input name="titulo" type="text" class="form-control" required="required" size="45"/>
         </div>
         
         <div class="input-group">
@@ -21,15 +21,15 @@
         </div>
         <div class="input-group">
             <label for="data">Data</label>
-            <input name="data" size="16" required="required" class="form-control" placeholder="07/05/2017 02:00" />
+            <input name="data" type="text" size="16" required="required" class="form-control" placeholder="07/05/2017 02:00" />
         </div>
         <div class="input-group">
             <label for="local">Local</label>
-            <input name="local" size="45" required="required" class="form-control" />
+            <input name="local" type="text" size="45" required="required" class="form-control" />
         </div>
         <div class="input-group">
             <label for="duracao">Duração</label>
-            <input name="duracao" size="13" required="required" class="form-control" />
+            <input name="duracao" type="number" required="required" class="form-control" />
         </div>
         <div class="input-group">
             <label for="observacao">Observação</label>

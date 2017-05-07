@@ -12,7 +12,6 @@ import java.sql.SQLException;
 public class ConexaoDB {
     
     public Connection getConexao() {
-    System.out.println("Conectando ao banco");
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver()); 
             return DriverManager.getConnection("jdbc:mysql://mysql:3306/mydb?autoReconnect=true","root","root");

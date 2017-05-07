@@ -3,6 +3,8 @@
 
 <t:master>
     <jsp:body>
-        ${output}
+        <div class="${!status.isEmpty() ? "alert alert-" += status : "alert"}" role="alert">
+            ${output}
+        </div>
     </jsp:body>
 </t:master>

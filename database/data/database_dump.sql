@@ -8,5 +8,5 @@ CREATE TABLE `compromissos` (
     `data` datetime NOT NULL,
     `local` varchar(45) NOT NULL,
     `duracao` decimal(10,2) NOT NULL,
-    `observacoes` varchar(200)
+    `observacao` varchar(200)
 );

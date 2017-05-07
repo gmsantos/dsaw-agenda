@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.sql.Timestamp;
 
 public class Compromisso {
@@ -83,20 +82,20 @@ public class Compromisso {
             PreparedStatement p;
             try {
                 p = conn.prepareStatement(
-                    "INSERT INTO compromissos (titulo, tipo, data, local, duracao, observacao) VALUES (?,?,?,?,?,?,?)"
+                    "INSERT INTO compromissos (titulo, tipo, data, local, duracao, observacao) VALUES (?,?,?,?,?,?)"
                 );
                 p.setString(1, titulo);
                 p.setString(2, tipo);
                 p.setTimestamp(3, new Timestamp(data.getTime()));
-                p.setString(5, local);
-                p.setDouble(6, duracao);
-                p.setString(7, observacao);
+                p.setString(4, local);
+                p.setDouble(5, duracao);
+                p.setString(6, observacao);
                 p.executeUpdate();
                 retorno = true;
             }
             catch(SQLException ex)
             {
-                System.err.println("Falha no cadastro: " + ex.getMessage());
+                ex.printStackTrace();
             }
             finally
             {
@@ -115,7 +114,7 @@ public class Compromisso {
             PreparedStatement p;
             try {
                 p = conn.prepareStatement(
-                    "SELECT (titulo, tipo, data, local, duracao, observacao) FROM compromissos WHERE data = ? AND local = ?");
+                    "SELECT titulo, tipo, data, local, duracao, observacao FROM compromissos WHERE data = ? AND local = ?");
                 p.setTimestamp(1, new Timestamp(data.getTime()));
                 p.setString(2, local);
                 
@@ -132,7 +131,7 @@ public class Compromisso {
                     retorno = true;
                 }
             } catch(SQLException ex) {
-                System.err.println("Falha ao buscar pelos compromissos: " + ex.getMessage());
+                ex.printStackTrace();
             } finally {
                 conexao.fecharConexao();
             }
