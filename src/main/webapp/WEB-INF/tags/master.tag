@@ -4,12 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+
     <link rel="icon" href="/favicon.ico">
 
-    <title>Java Boilerplate</title>
+    <title>DSAW - Agenda de compromissos</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
@@ -38,18 +36,14 @@
           <ul class="nav navbar-nav">
 
             <li class="active"><a href="/index.jsp">Home</a></li>
-            <li><a href="/sample">Sample</a></li>
+            <li><a href="/compromissos.jsp">Agendar Compromisso</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
-        <jsp:doBody/>
-      </div>
-
+      <jsp:doBody/>
     </div><!-- /.container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
