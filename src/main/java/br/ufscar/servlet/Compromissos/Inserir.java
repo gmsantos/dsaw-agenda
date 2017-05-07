@@ -52,14 +52,14 @@ public class Inserir extends BaseServlet {
             return;
         }
 
-        CompromissoDao dao = new CompromissoDao(compromisso);
+        CompromissoDao dao = new CompromissoDao();
 
-        if (dao.find()) {
+        if (dao.find(compromisso)) {
             error("Compromisso já agendado", request, response);
             return;
         } 
 
-        if (!dao.insert()){
+        if (!dao.insert(compromisso)){
             error("Falha ao cadastrar compromisso", request, response);
             return;
         }

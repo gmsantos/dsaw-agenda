@@ -8,16 +8,13 @@ import java.sql.SQLException;
 
 public class CompromissoDao {
 
-    private Compromisso compromisso;
-
     private MySQLConnection connection;
     
-    public CompromissoDao(Compromisso compromisso){
-        this.compromisso = compromisso;
+    public CompromissoDao(){
         this.connection = new MySQLConnection();
     }
 
-    public boolean insert() {
+    public boolean insert(Compromisso compromisso) {
         try {
             PreparedStatement stmn = connection.getConnection().prepareStatement(
                 "INSERT INTO compromissos (titulo, tipo, data, local, duracao, observacao) VALUES (?,?,?,?,?,?)"
@@ -42,13 +39,8 @@ public class CompromissoDao {
         connection.closeConnection();
         return false;
     }
-
-    public boolean select() {
-        return find();
-    }
     
-    public boolean find() {
-
+    public boolean find(Compromisso compromisso) {
         try {
             PreparedStatement stmn = connection.getConnection().prepareStatement(
                 "SELECT titulo, tipo, data, local, duracao, observacao FROM compromissos WHERE data = ? AND local = ?");
