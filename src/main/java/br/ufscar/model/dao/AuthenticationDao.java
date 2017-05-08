@@ -20,7 +20,7 @@ public class AuthenticationDao {
     public boolean attempt(String username, String password){
         try {
             PreparedStatement stmn = connection.getConnection().prepareStatement(
-                "SELECT id, name FROM usuarios WHERE login = ? AND password = ?;"
+                "SELECT id, nome FROM usuarios WHERE login = ? AND senha = ?;"
             );            
             stmn.setString(1, username);
             stmn.setString(2, getHash(password));
@@ -29,7 +29,7 @@ public class AuthenticationDao {
             
             if (rs.next()) {
                 authUserId = rs.getInt("id");
-                authUserName = rs.getString("name");
+                authUserName = rs.getString("nome");
 
                 return true;
             }

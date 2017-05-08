@@ -25,7 +25,7 @@
 
 	<filter-mapping>
 	    <filter-name>filterAuth</filter-name>
-	    <url-pattern>/*</url-pattern>
+	    <url-pattern>/compromissos/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 	    <filter-name>filterCompromissos</filter-name>

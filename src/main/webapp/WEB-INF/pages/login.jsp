@@ -18,6 +18,6 @@
             <input name="password" type="password" class="form-control" required="required" size="45"/>
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Cadastrar">
+        <input type="submit" class="btn btn-primary" value="Entrar">
     </form>
 </t:master>
