@@ -28,7 +28,7 @@ public class Login extends BaseServlet {
         AuthenticationDao dao = new AuthenticationDao();
         HttpSession session = request.getSession();
         
-        String login = request.getParameter("login");
+        String login = request.getParameter("username");
         String password = request.getParameter("password");
 
         if (dao.attempt(login, password)) {
@@ -38,6 +38,7 @@ public class Login extends BaseServlet {
 
             Cookie cookie = new Cookie("lastVisit", new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date()));
             response.addCookie(cookie);
+            response.sendRedirect("/compromissos/listar");
             return;
         }
 

@@ -12,6 +12,7 @@ public class Logout extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //
+        request.getSession().invalidate();
+        response.sendRedirect("/index.jsp");
     }
 }
