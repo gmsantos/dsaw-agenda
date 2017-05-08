@@ -22,4 +22,14 @@
     <url-pattern>/sample</url-pattern>
   </servlet-mapping>
 -->
+
+	<filter-mapping>
+	    <filter-name>filterAuth</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+	    <filter-name>filterCompromissos</filter-name>
+	    <url-pattern>/compromissos/*</url-pattern>
+	</filter-mapping>
+
 </web-app>

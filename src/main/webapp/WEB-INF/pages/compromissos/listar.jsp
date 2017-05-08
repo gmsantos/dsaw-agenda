@@ -21,7 +21,10 @@
                 <td><fmt:formatDate value="${compromisso.data}" pattern="dd/MM/yyyy HH:mm"/></td>
                 <td>${compromisso.local}</td>
                 <td>${compromisso.duracao}</td>
-                <td><a href="/compromissos/atualizar?id=${compromisso.id}">Editar</a> - <a href="/compromissos/excluir?id=${compromisso.id}">Excluir</a></td>
+                <td>
+                    <a href="/compromissos/atualizar?id=${compromisso.id}">Editar</a> - 
+                    <a href="/compromissos/excluir?id=${compromisso.id}">Excluir</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
