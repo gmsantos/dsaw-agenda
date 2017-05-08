@@ -20,8 +20,6 @@ public class Auth extends BaseFilter {
         session.setMaxInactiveInterval(120);
         String loginURI = request.getContextPath() + "/login";
 
-        System.out.println(loginURI);
-
         boolean loggedIn = session != null && session.getAttribute("authUserId") != null;
         boolean loginRequest = request.getRequestURI().equals(loginURI);
 
