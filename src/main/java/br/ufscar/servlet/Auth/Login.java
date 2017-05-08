@@ -26,12 +26,13 @@ public class Login extends BaseServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AuthenticationDao dao = new AuthenticationDao();
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
         if (dao.attempt(login, password)) {
+            session.setMaxInactiveInterval(120);
             session.setAttribute("authUserId", dao.getAuthUserId());
             session.setAttribute("getAuthUserName", dao.getAuthUserName());
 

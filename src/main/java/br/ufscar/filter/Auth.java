@@ -17,7 +17,6 @@ public class Auth extends BaseFilter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(false);
-        session.setMaxInactiveInterval(120);
         String loginURI = request.getContextPath() + "/login";
 
         boolean loggedIn = session != null && session.getAttribute("authUserId") != null;
