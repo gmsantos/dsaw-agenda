@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +39,18 @@
             <li><a href="/compromissos/listar">Compromissos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/logout">Logoff</a></li>
+            <c:if test="${cookie.lastVisit}">
+              <li><a href="#">Último acesso: ${cookie.lastVisit}</a></li>
+            </c:if>
+            <c:choose>
+                <c:when test="${sessionScope.authUserLogged}">
+                  <li><a href="#">Bem vindo, ${sessionScope.authUserName}</a></li>
+                  <li><a href="/logout">Logoff</a></li>
+                </c:when>    
+                <c:otherwise>
+                    <li><a href="/login">Login</a></li>
+                </c:otherwise>
+            </c:choose>            
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -33,8 +33,9 @@ public class Login extends BaseServlet {
 
         if (dao.attempt(login, password)) {
             session.setMaxInactiveInterval(120);
+            session.setAttribute("authUserLogged", true);
             session.setAttribute("authUserId", dao.getAuthUserId());
-            session.setAttribute("getAuthUserName", dao.getAuthUserName());
+            session.setAttribute("authUserName", dao.getAuthUserName());
 
             Cookie cookie = new Cookie("lastVisit", new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date()));
             response.addCookie(cookie);
