@@ -37,7 +37,7 @@ public class Login extends BaseServlet {
             session.setAttribute("authUserId", dao.getAuthUserId());
             session.setAttribute("authUserName", dao.getAuthUserName());
 
-            Cookie cookie = new Cookie("lastVisit", new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date()));
+            Cookie cookie = new Cookie("lastVisit", new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new Date()));
             response.addCookie(cookie);
             response.sendRedirect("/compromissos/listar");
             return;
