@@ -47,6 +47,40 @@ public class CompromissoDao {
         return collection;
     }
 
+    public List<Compromisso> getAllByUser(int userId){
+        List<Compromisso> collection = new ArrayList<Compromisso>();
+
+        try {
+            PreparedStatement stmn = connection.getConnection().prepareStatement(
+                "SELECT id, titulo, tipo, data, local, duracao, observacao FROM compromissos WHERE usuario_id = ?;"
+            );
+
+            stmn.setInt(1, userId);
+            
+            ResultSet rs = stmn.executeQuery();
+            
+            while (rs.next()){
+                Compromisso compromisso = new Compromisso();
+
+                compromisso.setId(rs.getInt("id"));
+                compromisso.setTitulo(rs.getString("titulo"));
+                compromisso.setTipo(rs.getString("tipo"));
+                compromisso.setData(rs.getTimestamp("data"));
+                compromisso.setLocal(rs.getString("local"));
+                compromisso.setDuracao(rs.getDouble("duracao"));
+                compromisso.setObservacao(rs.getString("observacao"));
+
+                collection.add(compromisso);
+            }
+
+            connection.closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return collection;
+    }
+
     public Compromisso getOne(int id) throws RuntimeException{
         try {
             PreparedStatement stmn = connection.getConnection().prepareStatement(
@@ -81,7 +115,7 @@ public class CompromissoDao {
     public boolean insert(Compromisso compromisso) {
         try {
             PreparedStatement stmn = connection.getConnection().prepareStatement(
-                "INSERT INTO compromissos (titulo, tipo, data, local, duracao, observacao) VALUES (?,?,?,?,?,?)"
+                "INSERT INTO compromissos (titulo, tipo, data, local, duracao, observacao, usuario_id) VALUES (?,?,?,?,?,?,?)"
             );
             stmn.setString(1, compromisso.getTitulo());
             stmn.setString(2, compromisso.getTipo());
@@ -89,6 +123,7 @@ public class CompromissoDao {
             stmn.setString(4, compromisso.getLocal());
             stmn.setDouble(5, compromisso.getDuracao());
             stmn.setString(6, compromisso.getObservacao());
+            stmn.setInt(7, compromisso.getUserId());
             stmn.executeUpdate();
 
             connection.closeConnection();
@@ -145,6 +180,28 @@ public class CompromissoDao {
             e.printStackTrace();
         }
 
+        return false;
+    }
+
+    public boolean ownedByUser(int id, int userId) {
+        try {
+            PreparedStatement stmn = connection.getConnection().prepareStatement(
+                "SELECT * FROM compromissos WHERE id = ? AND usuario_id = ?"
+            );
+            stmn.setInt(1, id);
+            stmn.setInt(2, userId);
+            
+            ResultSet rs = stmn.executeQuery();
+            
+            if(rs.next()){
+                connection.closeConnection();
+                return true;
+            }
+        } catch(SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        connection.closeConnection();
         return false;
     }
 

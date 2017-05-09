@@ -11,6 +11,7 @@ public class Compromisso {
     private String local;
     private Double duracao;
     private String observacao;
+    private int userId;
         
     public int getId(){
         return id;
@@ -18,6 +19,14 @@ public class Compromisso {
     
     public void setId(int id){
         this.id = id;
+    }
+
+    public int getUserId(){
+        return userId;
+    }
+    
+    public void setUserId(int userId){
+        this.userId = userId;
     }
     
     public String getTitulo(){

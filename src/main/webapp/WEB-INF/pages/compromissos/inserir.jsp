@@ -4,6 +4,7 @@
 <t:master>
     <h1>Novo Compromisso</h1>
     <form action="/compromissos/inserir" method="POST">
+        <input type="hidden" name="userId" value="${sessionScope.authUserId}">
         <div class="form-group">
             <label for="titulo">Título</label>
             <input name="titulo" type="text" class="form-control" required="required" size="45"/>

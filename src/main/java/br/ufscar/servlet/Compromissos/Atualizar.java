@@ -38,6 +38,7 @@ public class Atualizar extends BaseServlet {
         String local = request.getParameter("local");
         Double duracao = Double.parseDouble(request.getParameter("duracao"));
         String observacao = request.getParameter("observacao");
+        int userId = Integer.parseInt(request.getParameter("userId"));
         Date data;
 
         try {
@@ -56,6 +57,7 @@ public class Atualizar extends BaseServlet {
         compromisso.setLocal(local);
         compromisso.setDuracao(duracao);
         compromisso.setObservacao(observacao);
+        compromisso.setUserId(userId);
         
         if (!compromisso.isValid()) {
             error("Todos os campos precisam ser preenchidos", request, response);

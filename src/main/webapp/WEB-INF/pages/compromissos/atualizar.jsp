@@ -6,6 +6,7 @@
     <h1>Atualizar Compromisso</h1>
     <form action="/compromissos/atualizar" method="POST">
         <input type="hidden" name="id" value="${compromisso.id}"/>
+        <input type="hidden" name="userId" value="${sessionScope.authUserId}">
         <div class="form-group">
             <label for="titulo">Título</label>
             <input name="titulo" type="text" class="form-control" required="required" size="45" value="${compromisso.titulo}"/>
