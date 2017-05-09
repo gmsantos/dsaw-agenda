@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
 <t:master>
     <h1>Novo Compromisso</h1>
     <form action="/compromissos/inserir" method="POST">
@@ -9,11 +8,11 @@
             <label for="titulo">Título</label>
             <input name="titulo" type="text" class="form-control" required="required" size="45"/>
         </div>
-        
+
         <div class="form-group">
             <label for="tipo">Tipo</label>
             <select name="tipo" class="form-control">
-                <option value="Reuniao" selected="selected">Reunião</option> 
+                <option value="Reuniao" selected="selected">Reunião</option>
                 <option value="Encontro">Encontro</option>
                 <option value="Palestra">Palestra</option>
                 <option value="Conferencia">Conferência</option>

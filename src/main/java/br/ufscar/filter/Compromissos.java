@@ -1,5 +1,6 @@
 package br.ufscar.filter;
 
+import br.ufscar.model.dao.CompromissoDao;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
@@ -19,12 +20,14 @@ public class Compromissos extends BaseFilter {
         HttpSession session = request.getSession(false);
 
         String idParam = request.getParameter("id");
-        
+
         if (idParam != null) {
             int userId = Integer.parseInt(session.getAttribute("authUserId").toString());
             int compromissoId = Integer.parseInt(idParam);
 
-            if (compromissoId != userId) {
+            CompromissoDao dao = new CompromissoDao();
+
+            if (!dao.ownedByUser(compromissoId, userId)) {
                 request.setAttribute("output", "Você não tem permissão para fazer isso :(");
                 request.setAttribute("status", "danger");
                 request.getRequestDispatcher("/WEB-INF/pages/status.jsp").forward(request, response);

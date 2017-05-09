@@ -46,11 +46,11 @@
                 <c:when test="${sessionScope.authUserLogged}">
                   <li><a href="#">Bem vindo, ${sessionScope.authUserName}</a></li>
                   <li><a href="/logout">Logoff</a></li>
-                </c:when>    
+                </c:when>
                 <c:otherwise>
                     <li><a href="/login">Login</a></li>
                 </c:otherwise>
-            </c:choose>            
+            </c:choose>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

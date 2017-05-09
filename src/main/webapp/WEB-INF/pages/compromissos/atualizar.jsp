@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <t:master>
     <h1>Atualizar Compromisso</h1>
     <form action="/compromissos/atualizar" method="POST">
@@ -11,11 +10,11 @@
             <label for="titulo">Título</label>
             <input name="titulo" type="text" class="form-control" required="required" size="45" value="${compromisso.titulo}"/>
         </div>
-        
+
         <div class="form-group">
             <label for="tipo">Tipo</label>
             <select name="tipo" class="form-control">
-                <option value="Reuniao" ${compromisso.tipo.equals("Reunião") ? "selected=\"selected\"" : ""}>Reunião</option> 
+                <option value="Reuniao" ${compromisso.tipo.equals("Reunião") ? "selected=\"selected\"" : ""}>Reunião</option>
                 <option value="Encontro" ${compromisso.tipo.equals("Encontro") ? "selected=\"selected\"" : ""}>Encontro</option>
                 <option value="Palestra" ${compromisso.tipo.equals("Palestra") ? "selected=\"selected\"" : ""}>Palestra</option>
                 <option value="Conferencia" ${compromisso.tipo.equals("Conferência") ? "selected=\"selected\"" : ""}>Conferência</option>
