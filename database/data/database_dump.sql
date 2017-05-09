@@ -1,4 +1,5 @@
 USE mydb;
+ALTER DATABASE mydb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
@@ -25,7 +26,7 @@ CREATE TABLE `compromissos` (
     foreign key (`usuario_id`) references `usuarios`(`id`)
 );
 
-INSERT INTO `compromissos` (`titulo`, `tipo`, `data`, `local`, `duracao`, `observacao`, `usuario_id`) VALUES 
+INSERT INTO `compromissos` (`titulo`, `tipo`, `data`, `local`, `duracao`, `observacao`, `usuario_id`) VALUES
     ("Meu evento", "Encontro", "2018-05-08 03:15:00", "São Paulo", 10, null, 1),
     ("Evento Bacana", "Outro", "2018-05-08 03:15:00", "São José", 1, "Tem comida", 2),
     ("Evento", "Encontro", "2018-06-08 03:15:00", "Longe", 1, null, 1),
