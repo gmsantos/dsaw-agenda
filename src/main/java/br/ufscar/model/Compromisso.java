@@ -1,5 +1,6 @@
 package br.ufscar.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Compromisso {
@@ -75,6 +76,17 @@ public class Compromisso {
     
     public void setObservacao(String observacao){
         this.observacao = observacao;
+    }
+
+    public boolean isToday(){
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        Date now = new Date();
+        cal1.setTime(now);
+        cal2.setTime(data);
+
+        return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+               cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
     }
 
     public boolean isValid(){

@@ -2,6 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="today" class="java.util.Date" />
 <t:master>
     <h1>Listagem de Compromissos</h1>
     <table class="table table-hover">
@@ -14,7 +15,7 @@
             <th>Ações</th>
         </tr>
         <c:forEach var="compromisso" items="${compromissos}">
-            <tr>
+            <tr <c:if test="${compromisso.isToday()}">class="warning"</c:if> >
                 <td>${compromisso.titulo}</td>
                 <td>${compromisso.tipo}</td>
                 <td><fmt:formatDate value="${compromisso.data}" pattern="dd/MM/yyyy HH:mm"/></td>
