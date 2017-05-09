@@ -40,7 +40,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <c:if test="${cookie.containsKey('lastVisit')}">
-              <li><a href="#">Ultimo acesso: ${cookie.lastVisit.value}</a></li>
+              <li><a href="#">Último acesso: ${cookie.lastVisit.value}</a></li>
             </c:if>
             <c:choose>
                 <c:when test="${sessionScope.authUserLogged}">

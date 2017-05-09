@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8" contentType="text/html"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:master>
     <jsp:body>

@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8" contentType="text/html"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -22,7 +22,7 @@
                 <td>${compromisso.local}</td>
                 <td>${compromisso.duracao}</td>
                 <td>
-                    <a href="/compromissos/atualizar?id=${compromisso.id}">Editar</a> - 
+                    <a href="/compromissos/atualizar?id=${compromisso.id}">Editar</a> -
                     <a href="/compromissos/excluir?id=${compromisso.id}">Excluir</a>
                 </td>
             </tr>

@@ -22,6 +22,8 @@ public class BaseServlet extends HttpServlet {
 
     protected void dispachTo(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
+            request.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
             request.getRequestDispatcher(page).forward(request, response);
         } catch (IOException e) {
             e.printStackTrace();

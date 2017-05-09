@@ -28,6 +28,7 @@ public class Compromissos extends BaseFilter {
             CompromissoDao dao = new CompromissoDao();
 
             if (!dao.ownedByUser(compromissoId, userId)) {
+                request.setCharacterEncoding("UTF-8");
                 request.setAttribute("output", "Você não tem permissão para fazer isso :(");
                 request.setAttribute("status", "danger");
                 request.getRequestDispatcher("/WEB-INF/pages/status.jsp").forward(request, response);
