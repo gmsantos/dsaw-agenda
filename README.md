@@ -1,5 +1,7 @@
 # DSAW - AA 4-1
 
+https://github.com/gmsantos/dsaw-agenda
+
 Alunos:
 
     Daniel Constantino RA: 580996
@@ -19,6 +21,7 @@ Para desenvolver a atividade proposta, você deve utilizar conceitos sobre Banco
 1. Execute `docker-compose run mvn` to build Java classes and download dependencies files.
 1. Launch with `docker-compose up tomcat` and open your browser.
 1. The default address is `http://localhost:8080` but this can be changed in `docker-compose.yml`.
+1. There are two pre-cadastred users: `mario` and `joao`, both with password `123456`
 
 ## Important notes
 
