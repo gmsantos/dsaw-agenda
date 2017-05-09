@@ -14,7 +14,7 @@ public class Listar extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CompromissoDao dao = new CompromissoDao();
-        int userId = Integer.parseInt(request.getSession().getAttribute("authUserId").toString());
+        int userId = Integer.parseInt(request.getSession(false).getAttribute("authUserId").toString());
         request.setAttribute("compromissos", dao.getAllByUser(userId));
 
         dispachTo("/WEB-INF/pages/compromissos/listar.jsp", request, response);
